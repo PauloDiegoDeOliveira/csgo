@@ -1,3 +1,4 @@
+/* Estilo padrão para todo o projeto */
 * {
     margin: 0;
     padding: 0;
@@ -15,8 +16,29 @@ body {
     justify-content: space-between;
     /* Alinha os elementos filhos verticalmente ao centro do container */
     align-items: center;
-    /* Define a cor de fundo do elemento como um tom escuro de cinza (#333) */
+    /* Define a cor de fundo do elemento */
     background-color: #333;
-    /* Aplica um preenchimento de 20px em todos os lados do elemento */
+    /* Aplica um preenchimento em todos os lados do elemento */
     padding: 20px;
+}
+
+.logo-container {
+    /* Configura o elemento para utilizar o modelo de layout "Flexbox" */
+    display: flex;
+    /* Alinha os elementos filhos verticalmente ao centro do container */
+    align-items: center;
+}
+
+.logo-container h1 {
+    /* Define o tamanho da fonte do elemento "h1" */
+    font-size: 20px;
+    /* Aplica uma margem à esquerda do elemento "h1" */
+    margin-left: 10px;
+    /* Define a cor do texto do elemento "h1" */
+    color: #fff;
+}
+
+.logo {
+    /* Define a altura do elemento com a classe "logo" */
+    height: 50px;
 }
