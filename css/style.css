@@ -10,22 +10,21 @@ body {
 }
 
 .header .navbar {
-    /* Configura o elemento para utilizar o modelo de layout "Flexbox" */
+    /* Configura o elemento "Buscar" para utilizar o modelo de layout "Flexbox" - Lado a lado */
     display: flex;
-    /* Distribui os elementos filhos igualmente espaçados horizontalmente no container */
+    /* Distribui os elementos filhos "Buscar" igualmente espaçados horizontalmente no container - Espaçamento no buscar para o final*/
     justify-content: space-between;
-    /* Alinha os elementos filhos verticalmente ao centro do container */
+    /* Alinha os elementos filhos "Buscar" verticalmente ao centro do container */
     align-items: center;
-    /* Define a cor de fundo do elemento */
     background-color: #333;
-    /* Aplica um preenchimento em todos os lados do elemento */
+    /* Aplica um preenchimento em todos os lados do elemento - Margens */
     padding: 20px;
 }
 
 .logo-container {
-    /* Configura o elemento para utilizar o modelo de layout "Flexbox" */
+    /* Configura o elemento "Título" para utilizar o modelo de layout "Flexbox" - Lado a lado */
     display: flex;
-    /* Alinha os elementos filhos verticalmente ao centro do container */
+    /* Alinha os elementos filhos "Título" verticalmente ao centro do container */
     align-items: center;
 }
 
