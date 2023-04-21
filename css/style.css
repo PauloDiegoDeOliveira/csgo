@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.header .navbar {
+    /* Configura o elemento para utilizar o modelo de layout "Flexbox" */
+    display: flex;
+    /* Distribui os elementos filhos igualmente espaçados horizontalmente no container */
+    justify-content: space-between;
+    /* Alinha os elementos filhos verticalmente ao centro do container */
+    align-items: center;
+    /* Define a cor de fundo do elemento como um tom escuro de cinza (#333) */
+    background-color: #333;
+    /* Aplica um preenchimento de 20px em todos os lados do elemento */
+    padding: 20px;
+}
