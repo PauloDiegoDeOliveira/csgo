@@ -41,3 +41,13 @@ body {
     /* Define a altura do elemento com a classe "logo" */
     height: 50px;
 }
+
+footer {
+    background-color: #333;
+    /* Aplica um preenchimento em todos os lados do elemento "footer" */
+    padding: 10px;
+    /* Alinha o conteúdo do elemento "footer" ao centro horizontalmente */
+    text-align: center;
+    /* Define a cor do texto do elemento "footer" */
+    color: #fff;
+}
