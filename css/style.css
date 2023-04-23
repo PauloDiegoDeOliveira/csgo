@@ -62,7 +62,7 @@ body {
 }
 
 .card h3 {
-    /* Aplica uma margem inferior ao elemento "h3" dentro de um "card" */
+    /* Aplica uma margem inferior ao elemento "h3" dentro de um "card" - Entre o título e imagem */
     margin-bottom: 10px;
 }
 
