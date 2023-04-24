@@ -42,6 +42,42 @@ body {
     height: 50px;
 }
 
+.search-container {
+    /* Define a propriedade display do elemento como flex, permitindo que sejam organizados em uma linha flexível */
+    display: flex;
+}
+
+.search {
+    /* Aplica um espaço interno ao elemento */
+    padding: 5px;
+    /* Define o tamanho da fonte do texto */
+    font-size: 14px;
+    /* Aplica borda, criando bordas arredondadas no elemento */
+    border-radius: 5px;
+    /* Define a borda do elemento com espessura, estilo sólido */
+    border: 1px solid #ccc;
+}
+
+.banner {
+    /* Define a propriedade display do elemento como flex, permitindo que sejam organizados em uma linha flexível */
+    display: flex;
+    /* Alinha os itens horizontalmente no centro do elemento */
+    justify-content: center;
+    /* Alinha os itens verticalmente no centro do elemento */
+    align-items: center;
+    /* Centraliza o texto dentro do elemento */
+    text-align: center;
+    /* Esconde o conteúdo que ultrapassa os limites do elemento */
+    overflow: hidden;
+}
+
+.banner img {
+    /* Define a largura da imagem como 100% */
+    width: 100%;
+    /* Define a altura da imagem como automática */
+    height: auto;
+}
+
 .cards-container {
     /* Configura o elemento para utilizar o modelo de layout "Grid" */
     display: grid;
