@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // Converte a resposta da API em um objeto JSON e armazena os dados na constante 'skins'
             const skins = await response.json();
             // Retorna o objeto JSON com as informações das skins
+            console.log(skins);
             return skins;
         } catch (error) {
             console.error("Erro ao buscar skins: ", error);
@@ -26,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
         card.innerHTML = `
             <h3>${skin.weapon}</h3>
             <h3>${skin.pattern}</h3>
-            <img src="${skin.image}" alt="${skin.name}" width="100%">   
+            <img src="${skin.image}" alt="${skin.name}">   
             <p>Padrão: ${skin.pattern}</p>      
             <p>Raridade: ${skin.rarity}</p>`;
         // Retorna o card com as informações da skin

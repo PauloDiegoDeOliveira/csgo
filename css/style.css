@@ -112,6 +112,10 @@ body {
     margin: 3px;
 }
 
+.card img {
+    width: 100%;
+}
+
 footer {
     background-color: #333;
     /* Aplica um preenchimento em todos os lados do elemento "footer" */
