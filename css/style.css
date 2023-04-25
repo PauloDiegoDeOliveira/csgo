@@ -82,7 +82,7 @@ body {
     /* Define as colunas do grid para se ajustarem automaticamente ao espaço disponível e terem no mínimo 200px e no máximo 1 fração do espaço disponível */
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     /* Define o espaço entre os elementos do grid (linhas e colunas) */
-    gap: 20px;
+    gap: 10px;
     /* Aplica um preenchimento em todos os lados do elemento */
     padding: 20px;
 }
@@ -90,9 +90,10 @@ body {
 .card {
     background-color: #fff;
     /* Arredonda os cantos do elemento "card" */
-    border-radius: 15px;
+    border-radius: 10px;
     /* Aplica um preenchimento em todos os lados do elemento "card" */
     padding: 10px;
+    /* Aplica múltiplas sombras ao elemento "card" para criar um efeito de profundidade */
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
@@ -116,6 +117,17 @@ body {
     width: 100%;
 }
 
+.card:hover {
+    /* Aumenta a escala do elemento "card" quando o mouse passa por cima */
+    transform: scale(1.05);
+    /* Adiciona uma transição suave para o efeito de escala */
+    transition: transform 0.3s ease-in-out;
+    /* Adiciona uma sombra mais escura e maior ao passar o mouse */
+    box-shadow: rgba(50, 50, 93, 0.4) 0px 50px 100px -20px, rgba(0, 0, 0, 0.4) 0px 30px 60px -30px, rgba(10, 37, 64, 0.45) 0px -2px 6px 0px inset;
+    /* Define o cursor como um ponteiro para indicar que o elemento é clicável */
+    cursor: pointer;
+}
+
 footer {
     background-color: #333;
     /* Aplica um preenchimento em todos os lados do elemento "footer" */
@@ -131,4 +143,31 @@ footer {
     justify-content: center;
     /* Alinha os itens verticalmente no centro do elemento */
     align-items: center;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+    }
+
+    .logo-container h1 {
+        font-size: 18px;
+    }
+
+    .logo {
+        height: 40px;
+    }
+
+    .search-container {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .search {
+        width: 100%;
+    }
+
+    .banner {
+        display: none;
+    }
 }
