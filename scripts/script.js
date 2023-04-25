@@ -38,7 +38,6 @@ document.addEventListener("DOMContentLoaded", function () {
     function displaySkins(skins) {
         // Limpa o conteúdo de 'cardsContainer'
         cardsContainer.innerHTML = "";
-
         // Itera sobre cada skin e cria um card com a função 'createCard(skin)'
         skins.forEach(skin => {
             // Cria um card para a skin atual
