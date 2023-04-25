@@ -123,7 +123,7 @@ footer {
     /* Alinha o conteúdo do elemento "footer" ao centro horizontalmente */
     text-align: center;
     /* Define a cor do texto do elemento "footer" */
-    height: 50px;
+    height: 70px;
     color: #fff;
     /* Configura o elemento "Buscar" para utilizar o modelo de layout "Flexbox" - Lado a lado */
     display: flex;
