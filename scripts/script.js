@@ -24,9 +24,9 @@ document.addEventListener("DOMContentLoaded", function () {
         card.classList.add("card");
         // Preenche o conteúdo do card com informações da skin 
         card.innerHTML = `
-            <h3>${skin.name}</h3>
-            <img src="${skin.image}" alt="${skin.name}" width="100%">       
-            <p>Arma: ${skin.weapon}</p>
+            <h3>${skin.weapon}</h3>
+            <h3>${skin.pattern}</h3>
+            <img src="${skin.image}" alt="${skin.name}" width="100%">   
             <p>Padrão: ${skin.pattern}</p>      
             <p>Raridade: ${skin.rarity}</p>`;
         // Retorna o card com as informações da skin
