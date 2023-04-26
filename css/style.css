@@ -72,9 +72,9 @@ body {
 }
 
 .banner img {
-    /* Reduz a largura da imagem para 80% do espaço disponível */
+    /* Reduz a largura da imagem */
     width: 100%;
-    /* Reduz a altura da imagem para 300 pixels */
+    /* Reduz a altura da imagem */
     height: 300px;
 }
 
@@ -171,5 +171,11 @@ footer {
 
     .banner {
         display: none;
+    }
+
+    .footer-section {
+        flex: none;
+        width: 100%;
+        max-width: none;
     }
 }
