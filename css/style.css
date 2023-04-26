@@ -130,6 +130,32 @@ body {
     cursor: pointer;
 }
 
+.pagination {
+    display: flex;
+    /* Esta propriedade centraliza os flex items horizontalmente */
+    justify-content: center;
+    /* Esta propriedade centraliza os flex items verticalmente */
+    align-items: center;
+    /* Esta propriedade adiciona uma margem ao redor do elemento */
+    margin: 20px;
+}
+
+/* Links da paginação */
+.pagination a {
+    display: inline-block;
+    margin: 0 5px;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: #333;
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+}
+
+/* Hover dos links */
+.pagination a:hover {
+    background-color: #ddd;
+}
+
 footer {
     background-color: #333;
     /* Aplica um preenchimento em todos os lados do elemento "footer" */
