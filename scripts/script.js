@@ -2,6 +2,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Seleciona o elemento com a classe 'cards-container' e armazena na constante 'cardsContainer'
     const cardsContainer = document.querySelector(".cards-container");
+    const searchInput = document.querySelector(".search");
 
     async function getSkins() {
         try {
@@ -10,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // Converte a resposta da API em um objeto JSON e armazena os dados na constante 'skins'
             const skins = await response.json();
             // Retorna o objeto JSON com as informações das skins
-            console.log(skins);
+            // console.log(skins);
             return skins;
         } catch (error) {
             console.error("Erro ao buscar skins: ", error);
@@ -47,6 +48,20 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+    // Filtra o array 'allSkins' de acordo com o termo de busca e exibe os cards das skins filtradas
+    function searchSkins(event) {
+        // Converte o termo de busca digitado em letras minúsculas
+        const termoPesquisa = event.target.value.toLowerCase();
+        console.log('termo de pesquisa', termoPesquisa);
+        // Filtra o array 'allSkins' comparando o termo de busca com o nome de cada skin (convertido para letras minúsculas)
+        const filtroSkins = allSkins.filter(skin =>
+            skin.name.toLowerCase().includes(termoPesquisa)
+        );
+        console.log('Filtro das Skins', filtroSkins);
+        // Chama a função 'displaySkins(filteredSkins)' para exibir os cards das skins filtradas
+        displaySkins(filtroSkins);
+    }
+
     // Cria um array vazio para armazenar as skins
     let allSkins = [];
     // Chama a função 'getSkins()' e lida com a resposta usando a função '.then()'
@@ -56,4 +71,11 @@ document.addEventListener("DOMContentLoaded", function () {
         // Exibe os cards das skins utilizando a função 'displaySkins(skins)'
         displaySkins(skins);
     });
+
+    // Adiciona um evento de 'input' ao elemento 'searchInput' para chamar a função 'searchSkins' sempre que o usuário digitar um termo de pesquisa
+    searchInput.addEventListener('input', searchSkins);
+    console.log('Search Input', searchInput);
 });
+
+
+

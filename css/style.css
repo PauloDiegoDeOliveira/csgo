@@ -170,13 +170,18 @@ footer {
     }
 
     .banner {
+        /* Largura */
         width: 100%;
+        /* Altura */
         height: auto;
     }
 
-    .footer-section {
+    .footer {
+        /* Define o aumento, a redução e a base flexíveis como automáticos, permitindo assim que o elemento não cresça ou diminua */
         flex: none;
+        /* Largura */
         width: 100%;
+        /* Largura máxima como nenhum */
         max-width: none;
     }
 }
