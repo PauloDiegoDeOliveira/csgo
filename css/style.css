@@ -72,8 +72,10 @@ body {
 }
 
 .banner img {
-    /* Define a altura da imagem como automática */
-    height: auto;
+    /* Reduz a largura da imagem para 80% do espaço disponível */
+    width: 80%;
+    /* Reduz a altura da imagem para 300 pixels */
+    height: 300px;
 }
 
 .cards-container {
