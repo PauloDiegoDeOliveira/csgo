@@ -73,7 +73,7 @@ body {
 
 .banner img {
     /* Reduz a largura da imagem para 80% do espaço disponível */
-    width: 80%;
+    width: 100%;
     /* Reduz a altura da imagem para 300 pixels */
     height: 300px;
 }
