@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // Converte a resposta da API em um objeto JSON e armazena os dados na constante 'skins'
             const skins = await response.json();
             // Retorna o objeto JSON com as informações das skins
-            // console.log(skins);
+            console.log(skins);
             return skins;
         } catch (error) {
             console.error("Erro ao buscar skins: ", error);
