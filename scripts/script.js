@@ -55,15 +55,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function searchSkins(event) {
         cardsContainer.innerHTML = ''; // Limpa o container de cards antes de exibir os cards filtrados
+
         indexCard = 0; // Redefine o indexCard para 0 antes de realizar a busca       
+
         const termoPesquisa = event.target.value.toLowerCase();  // Converte o termo de busca digitado em letras minúsculas
         console.log('termo de pesquisa', termoPesquisa);
+
         // Filtra o array 'allSkins' comparando o termo de busca com o nome de cada skin (convertido para letras minúsculas)
         const filtroSkins = allSkins.filter(skin =>
             skin.name.toLowerCase().includes(termoPesquisa)
         );
         console.log('Filtro das Skins', filtroSkins);
-        displaySkins(filtroSkins);  // Chama a função 'displaySkins(filteredSkins)' para exibir os cards das skins filtradas
+
+        if (filtroSkins.length === 0) {
+            cardsContainer.innerHTML = 'Nenhuma skin foi encontrada.';
+            console.log('Nenhuma skin foi encontrada.');
+        } else {
+            displaySkins(filtroSkins);  // Chama a função 'displaySkins(filteredSkins)' para exibir os cards das skins filtradas
+        }
     }
 
     // Chama a função 'getSkins()' e lida com a resposta usando a função '.then()'
