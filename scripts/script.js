@@ -68,8 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log('Filtro das Skins', filtroSkins);
 
         if (filtroSkins.length === 0) {
-            cardsContainer.innerHTML = 'Nenhuma skin foi encontrada.';
-            console.log('Nenhuma skin foi encontrada.');
+            cardsContainer.innerHTML = `<h2 class="skinNaoEncontrada">${"Nenhuma skin foi encontrada."}</h2>`;
         } else {
             displaySkins(filtroSkins);  // Chama a função 'displaySkins(filteredSkins)' para exibir os cards das skins filtradas
         }
