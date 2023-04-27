@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const botaoMostrarMais = document.querySelector(".mostrar-mais");
     botaoMostrarMais.addEventListener("click", mostrarMaisCards);
 
-    const quantidadeCards = 2;
+    const quantidadeCards = 20;
     let indexCard = 0;
     let allSkins = [];
 

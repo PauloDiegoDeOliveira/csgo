@@ -90,13 +90,12 @@ body {
     /* Configura o elemento para utilizar o modelo de layout "Grid" */
     display: grid;
     /* Define as colunas do grid para se ajustarem automaticamente ao espaço disponível e terem no mínimo 200px e no máximo 1 fração do espaço disponível */
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     /* Define o espaço entre os elementos do grid (linhas e colunas) */
     gap: 10px;
     /* Aplica um preenchimento em todos os lados do elemento */
     padding: 20px;
     justify-items: center;
-
 }
 
 .card {
@@ -107,8 +106,8 @@ body {
     padding: 10px;
     /* Aplica múltiplas sombras ao elemento "card" para criar um efeito de profundidade */
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-    max-width: 205px;
-    max-height: 295px;
+    /* max-width: 205px;
+    max-height: 295px; */
 }
 
 .card h3 {
