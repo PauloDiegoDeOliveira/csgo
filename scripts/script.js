@@ -1,8 +1,17 @@
 // Adicione um evento 'DOMContentLoaded' ao objeto 'document' para garantir que o código seja executado após o carregamento completo do conteúdo da página
 document.addEventListener("DOMContentLoaded", function () {
-    // Seleciona o elemento com a classe 'cards-container' e armazena na constante 'cardsContainer'
-    const cardsContainer = document.querySelector(".cards-container");
+    const cardsContainer = document.querySelector(".cards-container"); // Seleciona o elemento com a classe 'cards-container' e armazena na constante 'cardsContainer'
+
     const searchInput = document.querySelector(".search");
+    searchInput.addEventListener('input', searchSkins); // Adiciona um evento de 'input' ao elemento 'searchInput' para chamar a função 'searchSkins' sempre que o usuário digitar um termo de pesquisa
+    console.log('Search Input', searchInput);
+
+    const botaoMostrarMais = document.querySelector(".mostrar-mais");
+    botaoMostrarMais.addEventListener("click", mostrarMaisCards);
+
+    const quantidadeCards = 33;
+    let indexCard = 0;
+    let allSkins = [];
 
     async function getSkins() {
         try {
@@ -11,7 +20,6 @@ document.addEventListener("DOMContentLoaded", function () {
             // Converte a resposta da API em um objeto JSON e armazena os dados na constante 'skins'
             const skins = await response.json();
             // Retorna o objeto JSON com as informações das skins
-            console.log(skins);
             return skins;
         } catch (error) {
             console.error("Erro ao buscar skins: ", error);
@@ -35,21 +43,27 @@ document.addEventListener("DOMContentLoaded", function () {
         return card;
     }
 
-    // Função para exibir os cards das skins no elemento 'cardsContainer'
     function displaySkins(skins) {
-        // Limpa o conteúdo de 'cardsContainer'
-        cardsContainer.innerHTML = "";
-        // Itera sobre cada skin e cria um card com a função 'createCard(skin)'
-        skins.forEach(skin => {
-            // Cria um card para a skin atual
-            const card = createCard(skin);
-            // Adiciona o card criado ao elemento 'cardsContainer'
+        const contagemParaExibir = Math.min(indexCard + quantidadeCards, skins.length);
+        console.log('Quantidade de cards', contagemParaExibir);
+
+        for (let i = indexCard; i < contagemParaExibir; i++) {
+            const card = createCard(skins[i]);
             cardsContainer.appendChild(card);
-        });
+        }
+
+        indexCard = contagemParaExibir;
     }
 
-    // Filtra o array 'allSkins' de acordo com o termo de busca e exibe os cards das skins filtradas
+    function mostrarMaisCards() {
+        displaySkins(allSkins);
+    }
+
     function searchSkins(event) {
+        // Limpa o container de cards antes de exibir os cards filtrados
+        cardsContainer.innerHTML = '';
+        // Redefine o indexCard para 0 antes de realizar a busca
+        indexCard = 0;
         // Converte o termo de busca digitado em letras minúsculas
         const termoPesquisa = event.target.value.toLowerCase();
         console.log('termo de pesquisa', termoPesquisa);
@@ -62,8 +76,6 @@ document.addEventListener("DOMContentLoaded", function () {
         displaySkins(filtroSkins);
     }
 
-    // Cria um array vazio para armazenar as skins
-    let allSkins = [];
     // Chama a função 'getSkins()' e lida com a resposta usando a função '.then()'
     getSkins().then(skins => {
         // Armazena as skins no array 'allSkins'
@@ -71,10 +83,6 @@ document.addEventListener("DOMContentLoaded", function () {
         // Exibe os cards das skins utilizando a função 'displaySkins(skins)'
         displaySkins(skins);
     });
-
-    // Adiciona um evento de 'input' ao elemento 'searchInput' para chamar a função 'searchSkins' sempre que o usuário digitar um termo de pesquisa
-    searchInput.addEventListener('input', searchSkins);
-    console.log('Search Input', searchInput);
 });
 
 
