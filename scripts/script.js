@@ -67,10 +67,30 @@ document.addEventListener("DOMContentLoaded", function () {
         );
         console.log('Filtro das Skins', filtroSkins);
 
+        displaySkins(filtroSkins);  // Chama a função 'displaySkins(filteredSkins)' para exibir os cards das skins filtradas
+
         if (filtroSkins.length === 0) {
-            cardsContainer.innerHTML = `<h2 class="skinNaoEncontrada"> Nenhuma skin foi encontrada."</h2>`;
+            nenhumaSkinEncontrada();
+            mostrarBotao(false);
         } else {
-            displaySkins(filtroSkins);  // Chama a função 'displaySkins(filteredSkins)' para exibir os cards das skins filtradas
+
+            mostrarBotao(true);
+        }
+    }
+
+    function nenhumaSkinEncontrada() {
+        const mensagem = document.createElement("div"); // Cria um novo elemento 'div' e armazena na constante 'message'
+        mensagem.classList.add("skinNaoEncontrada"); // Adiciona a classe 'no-skins-found' ao elemento 'message'
+        mensagem.textContent = "Nenhuma skin encontrada.";
+
+        cardsContainer.appendChild(mensagem); // Adiciona a mensagem ao 'cardsContainer'
+    }
+
+    function mostrarBotao(mostrar) {
+        if (mostrar) {
+            botaoMostrarMais.style.display = "block";
+        } else {
+            botaoMostrarMais.style.display = "none";
         }
     }
 
