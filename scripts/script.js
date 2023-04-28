@@ -1,12 +1,10 @@
-// Adicione um evento 'DOMContentLoaded' ao objeto 'document' para garantir que o código seja executado após o carregamento completo do conteúdo da página
 document.addEventListener("DOMContentLoaded", function () {
-    const cardsContainer = document.querySelector(".cards-container"); // Seleciona o elemento com a classe 'cards-container' e armazena na constante 'cardsContainer'
-
+    const cardsContainer = document.querySelector(".cards-container");
     const searchInput = document.querySelector(".search");
-    searchInput.addEventListener('input', searchSkins); // Adiciona um evento de 'input' ao elemento 'searchInput' para chamar a função 'searchSkins' sempre que o usuário digitar um termo de pesquisa
-    console.log('Search Input', searchInput);
-
     const botaoMostrarMais = document.querySelector(".mostrar-mais");
+
+    searchInput.addEventListener('input', searchSkins);
+    console.log('Search Input', searchInput);
     botaoMostrarMais.addEventListener("click", mostrarMaisCards);
 
     const quantidadeCards = 20;
@@ -15,19 +13,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
     async function getSkins() {
         try {
-            const response = await fetch("https://bymykel.github.io/CSGO-API/api/pt-BR/skins.json"); // Faz uma solicitação à API e armazena a resposta na constante 'response'
-            const skins = await response.json(); // Converte a resposta da API em um objeto JSON e armazena os dados na constante 'skins'
-            return skins; // Retorna o objeto JSON com as informações das skins
+            const response = await fetch("https://bymykel.github.io/CSGO-API/api/pt-BR/skins.json");
+            const skins = await response.json();
+            return skins;
         } catch (error) {
             console.error("Erro ao buscar skins: ", error);
         }
     }
 
-    // Função para criar um card com informações da skin
     function createCard(skin) {
-        const card = document.createElement("div"); // Cria um novo elemento 'div' e armazena na constante 'card'
-        card.classList.add("card"); // Adiciona a classe 'card' ao elemento 'card'
-        // Preenche o conteúdo do card com informações da skin 
+        const card = document.createElement("div");
+        card.classList.add("card");
         card.innerHTML = `
             <h3>${skin.weapon}</h3>
             <h3>${skin.pattern}</h3>
@@ -54,22 +50,21 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function searchSkins(event) {
-        cardsContainer.innerHTML = ''; // Limpa o container de cards antes de exibir os cards filtrados
+        cardsContainer.innerHTML = '';
 
-        indexCard = 0; // Redefine o indexCard para 0 antes de realizar a busca       
+        indexCard = 0;
 
-        const termoPesquisa = event.target.value.toLowerCase();  // Converte o termo de busca digitado em letras minúsculas
-        console.log('termo de pesquisa', termoPesquisa);
+        const pesquisaSkin = event.target.value.toLowerCase();
+        console.log('Pesquisa convertido para minúsculas', pesquisaSkin);
 
-        // Filtra o array 'allSkins' comparando o termo de busca com o nome de cada skin (convertido para letras minúsculas)
-        const filtroSkins = allSkins.filter(skin =>
-            skin.name.toLowerCase().includes(termoPesquisa)
+        const filtraSkins = allSkins.filter(skin =>
+            skin.name.toLowerCase().includes(pesquisaSkin)
         );
-        console.log('Filtro das Skins', filtroSkins);
+        console.log('Filtra as skins comparando com a pesquisa ', filtraSkins);
 
-        displaySkins(filtroSkins);  // Chama a função 'displaySkins(filteredSkins)' para exibir os cards das skins filtradas
+        displaySkins(filtraSkins);
 
-        if (filtroSkins.length === 0) {
+        if (filtraSkins.length === 0) {
             nenhumaSkinEncontrada();
             mostrarBotao(false);
         } else {
@@ -78,11 +73,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function nenhumaSkinEncontrada() {
-        const mensagem = document.createElement("div"); // Cria um novo elemento 'div' e armazena na constante 'mensagem'
-        mensagem.classList.add("skinNaoEncontrada"); // Adiciona a classe 'skinNaoEncontrada' ao elemento 'mensagem'
-        mensagem.textContent = "Nenhuma skin encontrada.";
+        const mensagem = document.createElement("div");
+        mensagem.classList.add("skinNaoEncontrada");
+        mensagem.textContent = "Skin não encontrada!";
 
-        cardsContainer.appendChild(mensagem); // Adiciona a mensagem ao 'cardsContainer'
+        cardsContainer.appendChild(mensagem);
     }
 
     function mostrarBotao(mostrar) {
@@ -90,10 +85,10 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log('Tem skin:', mostrar);
     }
 
-    // Chama a função 'getSkins()' e lida com a resposta usando a função '.then()'
+    // '.then()' lida com a resposta 
     getSkins().then(skins => {
-        allSkins = skins;  // Armazena as skins no array 'allSkins'
-        displaySkins(skins); // Exibe os cards das skins utilizando a função 'displaySkins(skins)'
+        allSkins = skins;
+        displaySkins(skins);
     });
 });
 
