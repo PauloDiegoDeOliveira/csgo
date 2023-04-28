@@ -79,8 +79,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function nenhumaSkinEncontrada() {
-        const mensagem = document.createElement("div"); // Cria um novo elemento 'div' e armazena na constante 'message'
-        mensagem.classList.add("skinNaoEncontrada"); // Adiciona a classe 'no-skins-found' ao elemento 'message'
+        const mensagem = document.createElement("div"); // Cria um novo elemento 'div' e armazena na constante 'mensagem'
+        mensagem.classList.add("skinNaoEncontrada"); // Adiciona a classe 'skinNaoEncontrada' ao elemento 'mensagem'
         mensagem.textContent = "Nenhuma skin encontrada.";
 
         cardsContainer.appendChild(mensagem); // Adiciona a mensagem ao 'cardsContainer'
@@ -89,10 +89,10 @@ document.addEventListener("DOMContentLoaded", function () {
     function mostrarBotao(mostrar) {
         if (mostrar) {
             botaoMostrarMais.style.display = "block";
-            console.log('Tem skins', mostrar);
+            console.log('Tem skin:', mostrar);
         } else {
             botaoMostrarMais.style.display = "none";
-            console.log('Não tem skin', mostrar);
+            console.log('Não tem skin:', mostrar);
         }
     }
 
