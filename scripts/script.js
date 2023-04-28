@@ -89,8 +89,10 @@ document.addEventListener("DOMContentLoaded", function () {
     function mostrarBotao(mostrar) {
         if (mostrar) {
             botaoMostrarMais.style.display = "block";
+            console.log('Tem skins', mostrar);
         } else {
             botaoMostrarMais.style.display = "none";
+            console.log('Não tem skin', mostrar);
         }
     }
 
