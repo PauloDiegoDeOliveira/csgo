@@ -73,7 +73,6 @@ document.addEventListener("DOMContentLoaded", function () {
             nenhumaSkinEncontrada();
             mostrarBotao(false);
         } else {
-
             mostrarBotao(true);
         }
     }
