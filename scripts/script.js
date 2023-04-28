@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const cardsContainer = document.querySelector(".cards-container");
     const searchInput = document.querySelector(".search");
     const botaoMostrarMais = document.querySelector(".mostrar-mais");
+    const mensagem = document.querySelector(".mensagem");
 
     searchInput.addEventListener('input', searchSkins);
     console.log('Search Input', searchInput);
@@ -43,6 +44,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         indexCard = contagemParaExibir;
+
+        nenhumaSkinEncontrada(false);
     }
 
     function mostrarMaisCards() {
@@ -65,19 +68,15 @@ document.addEventListener("DOMContentLoaded", function () {
         displaySkins(filtraSkins);
 
         if (filtraSkins.length === 0) {
-            nenhumaSkinEncontrada();
+            nenhumaSkinEncontrada(true);
             mostrarBotao(false);
         } else {
             mostrarBotao(true);
         }
     }
 
-    function nenhumaSkinEncontrada() {
-        const mensagem = document.createElement("div");
-        mensagem.classList.add("skinNaoEncontrada");
-        mensagem.textContent = "Skin não encontrada!";
-
-        cardsContainer.appendChild(mensagem);
+    function nenhumaSkinEncontrada(aviso) {
+        mensagem.style.display = aviso ? "block" : "none";
     }
 
     function mostrarBotao(mostrar) {
@@ -85,7 +84,6 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log('Tem skin:', mostrar);
     }
 
-    // '.then()' lida com a resposta 
     getSkins().then(skins => {
         allSkins = skins;
         displaySkins(skins);
