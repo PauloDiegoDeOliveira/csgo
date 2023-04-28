@@ -87,13 +87,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function mostrarBotao(mostrar) {
-        if (mostrar) {
-            botaoMostrarMais.style.display = "block";
-            console.log('Tem skin:', mostrar);
-        } else {
-            botaoMostrarMais.style.display = "none";
-            console.log('Não tem skin:', mostrar);
-        }
+        botaoMostrarMais.style.display = mostrar ? "block" : "none";
+        console.log('Tem skin:', mostrar);
     }
 
     // Chama a função 'getSkins()' e lida com a resposta usando a função '.then()'
