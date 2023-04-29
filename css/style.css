@@ -91,7 +91,7 @@ body {
 .card:hover {
     transform: scale(1.05);
     transition: transform 0.3s ease-in-out;
-    box-shadow: rgba(50, 50, 93, 0.4) 0px 50px 100px -20px, rgba(0, 0, 0, 0.4) 0px 30px 60px -30px, rgba(10, 37, 64, 0.45) 0px -2px 6px 0px inset;
+    box-shadow: rgba(50, 50, 93, 0.4) 0px 50px 100px -20px, rgba(0, 0, 0, 0.4) 0px 30px 60px -30px, rgba(10, 37, 64, 0.45) 0px -2px 6px 0px inset, 0 0 10px 2px #29377e;
     cursor: pointer;
 }
 
@@ -149,6 +149,8 @@ footer {
 
     .search-container {
         width: 100%;
+        display: flex;
+        justify-content: center;
         margin-top: 10px;
     }
 
