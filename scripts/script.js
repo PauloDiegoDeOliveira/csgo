@@ -5,14 +5,14 @@ document.addEventListener("DOMContentLoaded", function () {
     const mensagem = document.querySelector(".mensagem");
 
     searchInput.addEventListener('input', searchSkins);
-    console.log('Search Input', searchInput);
+
     botaoMostrarMais.addEventListener("click", mostrarMaisCards);
 
     const quantidadeCards = 20;
     let indexCard = 0;
     let allSkins = [];
 
-    async function getSkins() {
+    async function getAllSkins() {
         try {
             const response = await fetch("https://bymykel.github.io/CSGO-API/api/pt-BR/skins.json");
             const skins = await response.json();
@@ -54,16 +54,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function searchSkins(event) {
         cardsContainer.innerHTML = '';
-
         indexCard = 0;
 
         const pesquisaSkin = event.target.value.toLowerCase();
-        console.log('Pesquisa convertido para minúsculas', pesquisaSkin);
-
-        const filtraSkins = allSkins.filter(skin =>
-            skin.name.toLowerCase().includes(pesquisaSkin)
-        );
-        console.log('Filtra as skins comparando com a pesquisa ', filtraSkins);
+        const filtraSkins = allSkins.filter(skin => skin.name.toLowerCase().includes(pesquisaSkin));
 
         displaySkins(filtraSkins);
 
@@ -81,10 +75,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function mostrarBotao(mostrar) {
         botaoMostrarMais.style.display = mostrar ? "block" : "none";
-        console.log('Tem skin:', mostrar);
     }
 
-    getSkins().then(skins => {
+    getAllSkins().then(skins => {
         allSkins = skins;
         displaySkins(skins);
     });
