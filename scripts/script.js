@@ -1,66 +1,65 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const cardsContainer = document.querySelector(".cards-container");
-    const searchInput = document.querySelector(".search");
+    const containerCartoes = document.querySelector(".cards-container");
+    const entradaPesquisa = document.querySelector(".search");
     const botaoMostrarMais = document.querySelector(".mostrar-mais");
     const mensagem = document.querySelector(".mensagem");
 
-    searchInput.addEventListener('input', searchSkins);
-    botaoMostrarMais.addEventListener("click", mostrarMaisCards);
+    entradaPesquisa.addEventListener('input', pesquisarSkins);
+    botaoMostrarMais.addEventListener("click", mostrarMaisCartoes);
 
-    const quantidadeCards = 20;
-    let indexCard = 0;
-    let allSkins = [];
+    const quantidadeCartoes = 20;
+    let indiceCartao = 0;
+    let todasSkins = [];
 
-    async function getAllSkins() {
+    async function obterTodasSkins() {
         try {
-            const response = await fetch("https://bymykel.github.io/CSGO-API/api/pt-BR/skins.json");
-            const skins = await response.json();
+            const resposta = await fetch("https://bymykel.github.io/CSGO-API/api/pt-BR/skins.json");
+            const skins = await resposta.json();
             return skins;
-        } catch (error) {
-            console.error("Erro ao buscar skins: ", error);
+        } catch (erro) {
+            console.error("Erro ao buscar skins: ", erro);
         }
     }
 
-    function createCard(skin) {
-        const card = document.createElement("div");
-        card.classList.add("card");
-        card.innerHTML = `
+    function criarCartao(skin) {
+        const cartao = document.createElement("div");
+        cartao.classList.add("card");
+        cartao.innerHTML = `
             <h3>${skin.weapon}</h3>
             <h3>${skin.pattern}</h3>
             <img src="${skin.image}" alt="${skin.name}">   
             <p>Padrão: ${skin.pattern}</p>      
             <p>Raridade: ${skin.rarity}</p>`;
-        return card;
+        return cartao;
     }
 
-    function displaySkins(skins) {
-        const contagemParaExibir = Math.min(indexCard + quantidadeCards, skins.length);
+    function exibirSkins(skins) {
+        const contagemParaExibir = Math.min(indiceCartao + quantidadeCartoes, skins.length);
         console.log('Contagem para exibir', contagemParaExibir);
 
-        for (let i = indexCard; i < contagemParaExibir; i++) {
-            const card = createCard(skins[i]);
-            cardsContainer.appendChild(card);
+        for (let i = indiceCartao; i < contagemParaExibir; i++) {
+            const cartao = criarCartao(skins[i]);
+            containerCartoes.appendChild(cartao);
         }
 
-        indexCard = contagemParaExibir;
+        indiceCartao = contagemParaExibir;
 
         nenhumaSkinEncontrada(false);
     }
 
-    function mostrarMaisCards() {
-        displaySkins(allSkins);
+    function mostrarMaisCartoes() {
+        exibirSkins(todasSkins);
     }
 
-    function searchSkins(event) {
-        cardsContainer.innerHTML = '';
-        indexCard = 0;
+    function pesquisarSkins(evento) {
+        containerCartoes.innerHTML = '';
+        indiceCartao = 0;
+        const pesquisaSkin = evento.target.value.toLowerCase();
+        const skinsFiltradas = todasSkins.filter(skin => skin.name.toLowerCase().includes(pesquisaSkin));
 
-        const pesquisaSkin = event.target.value.toLowerCase();
-        const filtraSkins = allSkins.filter(skin => skin.name.toLowerCase().includes(pesquisaSkin));
+        exibirSkins(skinsFiltradas);
 
-        displaySkins(filtraSkins);
-
-        if (filtraSkins.length === 0) {
+        if (skinsFiltradas.length === 0) {
             nenhumaSkinEncontrada(true);
             mostrarBotao(false);
         } else {
@@ -76,11 +75,8 @@ document.addEventListener("DOMContentLoaded", function () {
         botaoMostrarMais.style.display = mostrar ? "block" : "none";
     }
 
-    getAllSkins().then(skins => {
-        allSkins = skins;
-        displaySkins(skins);
+    obterTodasSkins().then(skins => {
+        todasSkins = skins;
+        exibirSkins(skins);
     });
 });
-
-
-
