@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const mensagem = document.querySelector(".mensagem");
 
     searchInput.addEventListener('input', searchSkins);
-
     botaoMostrarMais.addEventListener("click", mostrarMaisCards);
 
     const quantidadeCards = 20;
