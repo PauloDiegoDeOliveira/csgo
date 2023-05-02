@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const quantidadeCartoes = 20;
     let indiceCartao = 0;
     let todasSkins = [];
-    let api = "https://bymykel.github.io/CSGO-API/api/pt-BR/skins.json";
+    const api = "https://bymykel.github.io/CSGO-API/api/pt-BR/skins.json";
 
     async function obterTodasSkins() {
         try {
