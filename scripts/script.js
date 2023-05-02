@@ -10,10 +10,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const quantidadeCartoes = 20;
     let indiceCartao = 0;
     let todasSkins = [];
+    let api = "https://bymykel.github.io/CSGO-API/api/pt-BR/skins.json";
 
     async function obterTodasSkins() {
         try {
-            const resposta = await fetch("https://bymykel.github.io/CSGO-API/api/pt-BR/skins.json");
+            const resposta = await fetch(api);
             const skins = await resposta.json();
             return skins;
         } catch (erro) {
@@ -67,12 +68,12 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    function nenhumaSkinEncontrada(aviso) {
-        mensagem.style.display = aviso ? "block" : "none";
+    function nenhumaSkinEncontrada(valor) {
+        mensagem.style.display = valor ? "block" : "none";
     }
 
-    function mostrarBotao(mostrar) {
-        botaoMostrarMais.style.display = mostrar ? "block" : "none";
+    function mostrarBotao(valor) {
+        botaoMostrarMais.style.display = valor ? "block" : "none";
     }
 
     obterTodasSkins().then(skins => {
