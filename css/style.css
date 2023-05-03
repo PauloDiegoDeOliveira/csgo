@@ -121,25 +121,44 @@ body {
     margin-top: 80px;
 }
 
-.skeleton-loader:empty {
+.skeleton-loader {
     width: 100%;
-    height: 300px;
-    object-fit: cover;
-    display: block;
-    background: linear-gradient(to right,
-            rgba(255, 255, 255, 0),
-            rgba(255, 255, 255, 0.5) 50%,
-            rgba(255, 255, 255, 0) 80%),
-        lightgray;
-    background-repeat: repeat-y;
-    background-size: 50px 500px;
-    background-position: 0 0;
-    animation: shine 1s infinite;
+    max-width: 300px;
+    background-color: #eee;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-@keyframes shine {
-    to {
-        background-position: 100% 0;
+.skeleton-loader>div {
+    height: 20px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.skeleton-loader img {
+    width: 100%;
+    height: 0;
+    padding-top: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.skeleton-loader>div,
+.skeleton-loader img {
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.1) 25%, rgba(0, 0, 0, 0.15) 50%, rgba(0, 0, 0, 0.1) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
     }
 }
 

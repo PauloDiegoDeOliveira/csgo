@@ -35,8 +35,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function exibirSkins(skins) {
+        removerSkeletonLoaders();
+
         const contagemParaExibir = Math.min(indiceCartao + quantidadeCartoes, skins.length);
-        console.log('Contagem para exibir', contagemParaExibir);
 
         for (let i = indiceCartao; i < contagemParaExibir; i++) {
             const cartao = criarCartao(skins[i]);
@@ -75,6 +76,46 @@ document.addEventListener("DOMContentLoaded", function () {
     function mostrarBotao(valor) {
         botaoMostrarMais.style.display = valor ? "block" : "none";
     }
+
+    function criarSkeletonLoader() {
+        const skeleton = document.createElement("div");
+        skeleton.classList.add("skeleton-loader");
+
+        const titulo1 = document.createElement("div");
+        titulo1.style.width = "80%";
+        skeleton.appendChild(titulo1);
+
+        const titulo2 = document.createElement("div");
+        titulo2.style.width = "90%";
+        skeleton.appendChild(titulo2);
+
+        const imagem = document.createElement("img");
+        skeleton.appendChild(imagem);
+
+        const titulo3 = document.createElement("div");
+        titulo3.style.width = "50%";
+        skeleton.appendChild(titulo3);
+
+        const titulo4 = document.createElement("div");
+        titulo4.style.width = "80%";
+        skeleton.appendChild(titulo4);
+
+        return skeleton;
+    }
+
+    function exibirSkeletonLoaders(quantidade) {
+        for (let i = 0; i < quantidade; i++) {
+            const skeleton = criarSkeletonLoader();
+            containerCartoes.appendChild(skeleton);
+        }
+    }
+
+    function removerSkeletonLoaders() {
+        const skeletonLoaders = document.querySelectorAll(".skeleton-loader");
+        skeletonLoaders.forEach((skeleton) => skeleton.remove());
+    }
+
+    exibirSkeletonLoaders(quantidadeCartoes);
 
     obterTodasSkins().then(skins => {
         todasSkins = skins;
