@@ -37,7 +37,6 @@ document.addEventListener("DOMContentLoaded", function () {
         imagem.addEventListener("load", () => {
             cartao.classList.remove("skeleton-loader");
         });
-
         imagem.src = skin.image;
 
         return cartao;
