@@ -25,15 +25,24 @@ document.addEventListener("DOMContentLoaded", function () {
     function criarCartao(skin) {
         const cartao = document.createElement("div");
         cartao.classList.add("card");
-        // cartao.classList.add("skeleton-loader");
+        cartao.classList.add("skeleton-loader");
         cartao.innerHTML = `
             <h3>${skin.weapon}</h3>
             <h3>${skin.pattern}</h3>
-            <img src="${skin.image}" alt="${skin.name}">   
+            <img alt="${skin.name}">   
             <p>Padrão: ${skin.pattern}</p>      
             <p>Raridade: ${skin.rarity}</p>`;
+
+        const imagem = cartao.querySelector("img");
+        imagem.addEventListener("load", () => {
+            cartao.classList.remove("skeleton-loader");
+        });
+
+        imagem.src = skin.image;
+
         return cartao;
     }
+
 
     function exibirSkins(skins) {
         removerSkeletonLoaders();
