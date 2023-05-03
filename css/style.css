@@ -136,6 +136,7 @@ body {
 .skeleton-loader>div {
     height: 20px;
     background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
 
 .skeleton-loader img {
@@ -143,6 +144,7 @@ body {
     height: 0;
     padding-top: 100%;
     background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
 
 .skeleton-loader>div,

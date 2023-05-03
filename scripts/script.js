@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function criarCartao(skin) {
         const cartao = document.createElement("div");
         cartao.classList.add("card");
+        // cartao.classList.add("skeleton-loader");
         cartao.innerHTML = `
             <h3>${skin.weapon}</h3>
             <h3>${skin.pattern}</h3>
